@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toto index{% endblock %}
+
+{% block body %}
+    <h1>Toto index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for toto in totos %}
+            <tr>
+                <td>{{ toto.id }}</td>
+                <td>{{ toto.label }}</td>
+                <td>
+                    <a href="{{ path('app_toto_show', {'id': toto.id}) }}">show</a>
+                    <a href="{{ path('app_toto_edit', {'id': toto.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_toto_new') }}">Create new</a>
+{% endblock %}

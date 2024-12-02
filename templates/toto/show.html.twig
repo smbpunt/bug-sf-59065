@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toto{% endblock %}
+
+{% block body %}
+    <h1>Toto</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ toto.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ toto.label }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_toto_index') }}">back to list</a>
+
+    <a href="{{ path('app_toto_edit', {'id': toto.id}) }}">edit</a>
+
+    {{ include('toto/_delete_form.html.twig') }}
+{% endblock %}
